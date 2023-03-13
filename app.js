@@ -28,13 +28,12 @@ app.get("/restaurants/:restaurant_id", (req, res) => {
 
 //搜尋結果的route
 app.get("/search", (req, res) => {
-  const keyword = req.query.keyword;
-  const restaurants = restaurantList.results.filter((restaurant) => {
-    return (
-      restaurant.name.toLowerCase().includes(keyword.toLowerCase()) ||
+  const keyword = req.query.keyword.trim().toLowerCase();
+  const restaurants = restaurantList.results.filter(
+    (restaurant) =>
+      restaurant.name.toLowerCase().includes(keyword) ||
       restaurant.category.includes(keyword)
-    );
-  });
+  );
 
   if (restaurants.length) {
     //如果有搜尋結果，執行以下
@@ -54,7 +53,8 @@ app.listen(port, () => {
 function recommendRestaurants(restaurants) {
   const randomRestaurantList = [];
   while (randomRestaurantList.length < 3) {
-    const restaurant = restaurants[Math.floor(Math.random() * 8)];
+    const restaurant =
+      restaurants[Math.floor(Math.random() * restaurants.length)];
     if (!randomRestaurantList.some((res) => res.id === restaurant.id)) {
       randomRestaurantList.push(restaurant);
     }
