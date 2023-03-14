@@ -12,13 +12,14 @@
 1. 使用者可以點擊任一餐廳，查看更多餐廳資訊，如地址、電話與簡介
 2. 使用者可以依店家名稱、料理類別來搜尋
 3. 使用者可以瀏覽一家餐廳的詳細資訊
-4. 使用者輸入的關鍵字無搜尋結果時，系統會自動推薦3間餐廳
+4. 使用者輸入的關鍵字無搜尋結果時，系統會隨機推薦3間餐廳
 
 ## Prerequisites
 
 * Node.js
 * Express @4.16.4
 * Express-handlebars @3.0.0
+* Bootstrap @5.1.3
 
 ## Installation and Execution
 
